@@ -60,9 +60,11 @@
     };
     screencapture.location = "~/Screenshots";  # stop cluttering the Desktop
   };
+  # mas v7 installs apps by re-executing itself via sudo
+  # (`sudo MAS_NO_AUTO_INDEX=1 <mas-binary> install ...`), so the NOPASSWD
+  # rule must cover the mas binary itself, with SETENV for the env prefix.
   environment.etc."sudoers.d/mas".text = ''
-    ${user} ALL=(ALL) NOPASSWD: /usr/sbin/installer *
-    ${user} ALL=(ALL) NOPASSWD: /usr/bin/mdutil *
+    ${user} ALL=(ALL) NOPASSWD:SETENV: /opt/homebrew/Cellar/mas/*/libexec/bin/mas
   '';
 
   nix-homebrew = {
