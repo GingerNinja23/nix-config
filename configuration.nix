@@ -101,6 +101,8 @@
       "Things 3" = 904280696;
       "Bear" = 1091189122;
       "AutoMute - No More Oopsies" = 1118136179;
+      "WhatsApp Messenger" = 310633997;
+      "Apple Configurator" = 1037126344;
     };
   };
 }
