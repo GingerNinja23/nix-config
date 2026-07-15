@@ -93,10 +93,14 @@
       "obsidian"
       "chatgpt"
       "rectangle"
-      "automute"
       "shottr"
       "cotypist"
       "spotify"
     ];
+    masApps = {
+      "Things 3" = 904280696;
+      "Bear" = 1091189122;
+      "AutoMute - No More Oopsies" = 1118136179;
+    };
   };
 }
