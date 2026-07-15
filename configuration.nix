@@ -60,6 +60,11 @@
     };
     screencapture.location = "~/Screenshots";  # stop cluttering the Desktop
   };
+  environment.etc."sudoers.d/mas".text = ''
+    ${user} ALL=(ALL) NOPASSWD: /usr/sbin/installer *
+    ${user} ALL=(ALL) NOPASSWD: /usr/bin/mdutil *
+  '';
+
   nix-homebrew = {
     enable = true;
     inherit user;
