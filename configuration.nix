@@ -78,6 +78,9 @@
     onActivation.extraFlags = [ "--force" ];
     brews = [
       "gh"
+      "openjdk"          # Java toolchain (latest)
+      "openjdk@11"
+      "openjdk@17"
       "herdr"
       "awscli"
       "btop"
