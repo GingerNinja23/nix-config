@@ -63,10 +63,6 @@
   # mas v7 installs apps by re-executing itself via sudo
   # (`sudo MAS_NO_AUTO_INDEX=1 <mas-binary> install ...`), so the NOPASSWD
   # rule must cover the mas binary itself, with SETENV for the env prefix.
-  environment.etc."sudoers.d/mas".text = ''
-    ${user} ALL=(ALL) NOPASSWD:SETENV: /opt/homebrew/Cellar/mas/*/libexec/bin/mas
-  '';
-
   nix-homebrew = {
     enable = true;
     inherit user;
@@ -107,12 +103,13 @@
       "cotypist"
       "spotify"
     ];
-    masApps = {
-      "Things 3" = 904280696;
-      "Bear" = 1091189122;
-      "AutoMute - No More Oopsies" = 1118136179;
-      "WhatsApp Messenger" = 310633997;
-      "Apple Configurator" = 1037126344;
-    };
+    # NOTE: masApps removed — mas 7.0.0 has a "Failed to find receipt to import"
+    # bug that returns a non-zero exit even when the App Store install succeeds.
+    # Because `brew bundle` runs before home-manager during activation, that
+    # failure aborted every rebuild (nothing after Homebrew applied). These apps
+    # are installed manually via the App Store instead:
+    #   Things 3 (904280696), Bear (1091189122),
+    #   AutoMute - No More Oopsies (1118136179),
+    #   WhatsApp Messenger (310633997), Apple Configurator (1037126344)
   };
 }
