@@ -21,6 +21,9 @@ in
   fonts.fontconfig.enable = true;
   home.sessionVariables.EDITOR = "nvim";
 
+  # Put openjdk@11 (keg-only) on PATH as the default java
+  home.sessionPath = [ "/opt/homebrew/opt/openjdk@11/bin" ];
+
   programs.git = {
     enable = true;
     settings.user.name = "Teja Theegela";
